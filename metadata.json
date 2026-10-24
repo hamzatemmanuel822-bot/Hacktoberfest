@@ -1,0 +1,6 @@
+{
+  "name": "SmartWelcome AI",
+  "description": "Gemma 4-powered smart entry, computer vision human detection, visitor management, and Wi-Fi-connected Arduino UNO Q attendance system.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

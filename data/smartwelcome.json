@@ -1,0 +1,429 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-10-24T12:41:14.900Z",
+  "staff": [
+    {
+      "id": "stf_01",
+      "staffNumber": "EMP-1042",
+      "fullName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "email": "elena.vance@smartwelcome.org",
+      "phone": "+1 (555) 234-8901",
+      "role": "Principal Embedded Architect",
+      "active": true,
+      "stickerTokenId": "tok_stf_01",
+      "createdAt": "2026-09-24T12:41:08.597Z",
+      "updatedAt": "2026-09-24T12:41:08.597Z"
+    },
+    {
+      "id": "stf_02",
+      "staffNumber": "EMP-1043",
+      "fullName": "Marcus Thorne",
+      "department": "Computer Vision & AI Systems",
+      "email": "marcus.thorne@smartwelcome.org",
+      "phone": "+1 (555) 345-6789",
+      "role": "Senior Vision Engineer",
+      "active": true,
+      "stickerTokenId": "tok_stf_02",
+      "createdAt": "2026-09-29T12:41:08.597Z",
+      "updatedAt": "2026-09-29T12:41:08.597Z"
+    },
+    {
+      "id": "stf_03",
+      "staffNumber": "EMP-1044",
+      "fullName": "Sarah Chen",
+      "department": "Cloud & IoT Infrastructure",
+      "email": "sarah.chen@smartwelcome.org",
+      "phone": "+1 (555) 456-7890",
+      "role": "DevOps & Security Lead",
+      "active": true,
+      "stickerTokenId": "tok_stf_03",
+      "createdAt": "2026-10-04T12:41:08.597Z",
+      "updatedAt": "2026-10-04T12:41:08.597Z"
+    },
+    {
+      "id": "stf_04",
+      "staffNumber": "EMP-1045",
+      "fullName": "David K. O’Connor",
+      "department": "Human Resources & Facilities",
+      "email": "david.oconnor@smartwelcome.org",
+      "phone": "+1 (555) 567-8901",
+      "role": "Facility Operations Manager",
+      "active": true,
+      "stickerTokenId": "tok_stf_04",
+      "createdAt": "2026-10-09T12:41:08.597Z",
+      "updatedAt": "2026-10-09T12:41:08.597Z"
+    }
+  ],
+  "visitors": [
+    {
+      "id": "vis_01",
+      "fullName": "Prof. Arthur Sterling",
+      "organization": "Institute of Embedded Intelligence",
+      "purpose": "Technical Review: Arduino UNO Q Architecture",
+      "hostPerson": "Dr. Elena Vance",
+      "hostDepartment": "Robotics & Hardware Lab",
+      "expectedArrival": "2026-10-24T09:30:00Z",
+      "status": "checked_in",
+      "stickerTokenId": "tok_vis_01",
+      "createdAt": "2026-10-23T12:41:08.597Z",
+      "updatedAt": "2026-10-24T10:41:08.597Z"
+    },
+    {
+      "id": "vis_02",
+      "fullName": "Maya Lin",
+      "organization": "Nordic Sensor Dynamics",
+      "purpose": "Supplier Audit & Sensor Calibration",
+      "hostPerson": "Marcus Thorne",
+      "hostDepartment": "Computer Vision & AI Systems",
+      "expectedArrival": "2026-10-24T14:00:00Z",
+      "status": "expected",
+      "stickerTokenId": "tok_vis_02",
+      "createdAt": "2026-10-24T00:41:08.597Z",
+      "updatedAt": "2026-10-24T00:41:08.597Z"
+    }
+  ],
+  "stickerTokens": [
+    {
+      "id": "tok_stf_01",
+      "token": "SWK-STF-3518-0141",
+      "tokenHash": "151e4f0d25526300f0a588160edc79230292eca112b03352f4b133c4b38f2ecb",
+      "assignedToType": "staff",
+      "assignedToId": "stf_01",
+      "status": "active",
+      "expiresAt": null,
+      "createdAt": "2026-09-24T12:41:08.597Z"
+    },
+    {
+      "id": "tok_stf_02",
+      "token": "SWK-STF-A388-0753",
+      "tokenHash": "c7fa049c8fe608c98472d07d7b2103e9c2b532f3bc6c71b4eb733c7128346eb6",
+      "assignedToType": "staff",
+      "assignedToId": "stf_02",
+      "status": "active",
+      "expiresAt": null,
+      "createdAt": "2026-09-29T12:41:08.597Z"
+    },
+    {
+      "id": "tok_stf_03",
+      "token": "SWK-STF-FBDA-5AB9",
+      "tokenHash": "d8602aacc7b8a03efcc30df55aa990f5e264e84d4c10606c86fb630c0ea8d4fd",
+      "assignedToType": "staff",
+      "assignedToId": "stf_03",
+      "status": "active",
+      "expiresAt": null,
+      "createdAt": "2026-10-04T12:41:08.597Z"
+    },
+    {
+      "id": "tok_stf_04",
+      "token": "SWK-STF-E61F-2FE3",
+      "tokenHash": "ad780061ce89b6976435bcfc420fab5479afd8a2e4fb6376db92bfb0e987e086",
+      "assignedToType": "staff",
+      "assignedToId": "stf_04",
+      "status": "active",
+      "expiresAt": null,
+      "createdAt": "2026-10-09T12:41:08.597Z"
+    },
+    {
+      "id": "tok_vis_01",
+      "token": "SWK-VIS-79D8-14C1",
+      "tokenHash": "1a6ef4601e483b81b3a0f1d426e281839cbaa1349e323d9adfd41ddcbc0e0c74",
+      "assignedToType": "visitor",
+      "assignedToId": "vis_01",
+      "status": "active",
+      "expiresAt": "2026-10-25T12:41:08.597Z",
+      "createdAt": "2026-10-23T12:41:08.597Z"
+    },
+    {
+      "id": "tok_vis_02",
+      "token": "SWK-VIS-0D59-1A3A",
+      "tokenHash": "edcb5a43e7c4ec0983213be1325ed3a6d8cdcea8cd32ce44b1c6b1c78b3dac73",
+      "assignedToType": "visitor",
+      "assignedToId": "vis_02",
+      "status": "active",
+      "expiresAt": "2026-10-25T12:41:08.597Z",
+      "createdAt": "2026-10-24T00:41:08.597Z"
+    },
+    {
+      "id": "tok_test_rev",
+      "token": "SWK-STF-818B-FD7E",
+      "tokenHash": "ea7ce7b78a0e3ebc5103f7ef1380b0b942658821d0a0489ce8b9a083c6ebef86",
+      "assignedToType": "staff",
+      "assignedToId": "stf_01",
+      "status": "revoked",
+      "expiresAt": null,
+      "createdAt": "2026-10-24T12:41:14.191Z",
+      "revokedReason": "Security key rotation"
+    }
+  ],
+  "attendanceRecords": [
+    {
+      "id": "att_1792845674192_ba301a",
+      "personType": "staff",
+      "personId": "stf_01",
+      "personName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "timestamp": "2026-10-24T12:41:14.192Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-STF-3518-0141",
+      "deviceNotified": false,
+      "deviceAck": false,
+      "duplicateAttempt": true,
+      "notes": "Duplicate check-in attempt (first logged at 9:41:08 AM)"
+    },
+    {
+      "id": "att_1792845674190_0694b6",
+      "personType": "staff",
+      "personId": "stf_01",
+      "personName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "timestamp": "2026-10-24T12:41:14.190Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-STF-3518-0141",
+      "deviceNotified": false,
+      "deviceAck": false,
+      "duplicateAttempt": true,
+      "notes": "Duplicate check-in attempt (first logged at 9:41:08 AM)"
+    },
+    {
+      "id": "att_01",
+      "personType": "staff",
+      "personId": "stf_01",
+      "personName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "timestamp": "2026-10-24T09:41:08.597Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-STF-3518-0141",
+      "deviceNotified": true,
+      "deviceAck": true,
+      "duplicateAttempt": false,
+      "notes": "Morning entry"
+    },
+    {
+      "id": "att_02",
+      "personType": "visitor",
+      "personId": "vis_01",
+      "personName": "Prof. Arthur Sterling",
+      "department": "Robotics & Hardware Lab",
+      "organization": "Institute of Embedded Intelligence",
+      "timestamp": "2026-10-24T10:41:08.597Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-VIS-79D8-14C1",
+      "deviceNotified": true,
+      "deviceAck": true,
+      "duplicateAttempt": false,
+      "notes": "Visitor check-in with host Dr. Vance"
+    }
+  ],
+  "deviceRegistrations": [
+    {
+      "id": "dev_01",
+      "deviceId": "UNO-Q-ENTRANCE-01",
+      "deviceName": "Main Lobby Arduino UNO Q",
+      "ipAddress": "192.168.1.150",
+      "macAddress": "E4:5F:01:2A:8C:99",
+      "firmwareVersion": "v1.4.0-stm32u585",
+      "protocolVersion": "1.0",
+      "authToken": "uno-q-sec-9812-token-auth",
+      "status": "online",
+      "lastHeartbeat": "2026-10-24T12:41:08.597Z",
+      "registeredAt": "2026-10-17T12:41:08.597Z"
+    }
+  ],
+  "deviceEvents": [
+    {
+      "id": "cmd_1792845674873_706903",
+      "deviceId": "UNO-Q-ENTRANCE-01",
+      "eventType": "ATTENDANCE_SUCCESS",
+      "payload": {
+        "personName": "Test Attendee",
+        "audioChime": true
+      },
+      "timestamp": "2026-10-24T12:41:14.873Z",
+      "status": "acknowledged",
+      "ackTimestamp": "2026-10-24T12:41:14.900Z"
+    }
+  ],
+  "approvedKnowledge": [
+    {
+      "id": "knw_01",
+      "category": "checkin",
+      "question": "What should I do first when arriving at the entrance?",
+      "answer": "Welcome to SmartWelcome AI facility! Please collect an attendance sticker badge from the dispenser holder next to the kiosk screen, peel it to display the QR code, and hold it up to the camera scanner to complete your check-in.",
+      "keywords": [
+        "first",
+        "arrive",
+        "entrance",
+        "sticker",
+        "procedure",
+        "how to",
+        "start"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_02",
+      "category": "checkin",
+      "question": "What should I do if my QR code sticker fails to scan or is invalid?",
+      "answer": "If the camera has trouble reading your sticker, tap the \"Enter Code Manually\" button on the screen and type the 16-character code printed under the QR code. If the code is rejected, please visit the reception security desk on your left for immediate badge re-issuance.",
+      "keywords": [
+        "fail",
+        "error",
+        "invalid",
+        "manual",
+        "code",
+        "broken",
+        "sticker",
+        "trouble"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_03",
+      "category": "department",
+      "question": "Where is the Robotics & Hardware Lab located?",
+      "answer": "The Robotics & Hardware Lab is located on Floor 2, Wing B, Room B-210. Take the main elevator behind the lobby and turn right. Lead contact is Dr. Elena Vance.",
+      "keywords": [
+        "robotics",
+        "hardware",
+        "lab",
+        "location",
+        "where",
+        "elena vance",
+        "room"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_04",
+      "category": "department",
+      "question": "Where is the Computer Vision & AI Systems department located?",
+      "answer": "The Computer Vision & AI Systems Lab is on Floor 3, Suite 305. Lead contact is Marcus Thorne.",
+      "keywords": [
+        "computer vision",
+        "ai",
+        "systems",
+        "marcus thorne",
+        "floor 3",
+        "suite 305"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_05",
+      "category": "facilities",
+      "question": "What is the guest Wi-Fi network and how do I connect?",
+      "answer": "Visitors may connect to the \"SmartWelcome-Guest\" wireless network. Once connected, open your browser and accept the guest policy. No password is required for verified registered visitors.",
+      "keywords": [
+        "wifi",
+        "wi-fi",
+        "internet",
+        "guest",
+        "network",
+        "connect"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_06",
+      "category": "facilities",
+      "question": "Where should visitors wait for their host?",
+      "answer": "Please take a seat in the Visitor Lounge located directly behind the kiosk next to the botanical partition. Your host has been notified of your check-in and will meet you there within 5 minutes.",
+      "keywords": [
+        "wait",
+        "lounge",
+        "host",
+        "seat",
+        "where to wait"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_07",
+      "category": "policy",
+      "question": "What information is required for visitors to register?",
+      "answer": "Visitors must provide their Full Name, Organization or Company, Purpose of Visit, and the name of their internal host or receiving department. Stickers remain valid for 24 hours.",
+      "keywords": [
+        "information",
+        "required",
+        "register",
+        "visitor",
+        "rules",
+        "policy"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    },
+    {
+      "id": "knw_08",
+      "category": "emergency",
+      "question": "Where are the emergency fire exits and first aid kits?",
+      "answer": "Emergency exit doors are located at the North and South ends of the main atrium, clearly marked with illuminated green exit signs. A first aid kit and AED defibrillator are mounted next to Reception Desk A.",
+      "keywords": [
+        "emergency",
+        "fire",
+        "exit",
+        "first aid",
+        "evacuate",
+        "safety",
+        "aed"
+      ],
+      "updatedAt": "2026-10-24T12:41:08.597Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "aud_1792845674192_9845",
+      "actor": "kiosk",
+      "action": "DUPLICATE_CHECKIN_LOGGED",
+      "target": "Dr. Elena Vance",
+      "details": "Verified via qr_sticker. Token: SWK-STF...",
+      "timestamp": "2026-10-24T12:41:14.192Z"
+    },
+    {
+      "id": "aud_1792845674191_c85e",
+      "actor": "kiosk",
+      "action": "REVOKED_TOKEN_PRESENTED",
+      "target": "SWK-STF-818B-FD7E",
+      "details": "Token revoked: Security key rotation",
+      "timestamp": "2026-10-24T12:41:14.191Z"
+    },
+    {
+      "id": "aud_1792845674191_c112",
+      "actor": "kiosk",
+      "action": "TOKEN_VALIDATION_FAILED",
+      "target": "SWK-FAKE-9999-XXXX",
+      "details": "Token not found in registry",
+      "timestamp": "2026-10-24T12:41:14.191Z"
+    },
+    {
+      "id": "aud_1792845674191_f134",
+      "actor": "kiosk",
+      "action": "DUPLICATE_CHECKIN_LOGGED",
+      "target": "Dr. Elena Vance",
+      "details": "Verified via qr_sticker. Token: SWK-STF...",
+      "timestamp": "2026-10-24T12:41:14.191Z"
+    },
+    {
+      "id": "aud_01",
+      "actor": "system",
+      "action": "SYSTEM_BOOTSTRAP",
+      "target": "database",
+      "details": "SmartWelcome AI core database initialized with default schemas and security rules",
+      "timestamp": "2026-10-24T12:41:08.597Z"
+    }
+  ],
+  "settings": {
+    "absenceTimeoutSeconds": 5,
+    "cooldownSeconds": 8,
+    "duplicateWindowHours": 8,
+    "gemmaModelVariant": "gemma-4-e4b-it",
+    "gemmaInferenceEndpoint": "http://localhost:11434",
+    "gemmaApiKeyConfigured": true,
+    "unoQHost": "192.168.1.150",
+    "unoQPort": 3000,
+    "deviceAuthSecret": "uno-q-sec-9812-token-auth",
+    "welcomeVoiceEnabled": true,
+    "cameraNoticeEnabled": true,
+    "organizationName": "SmartWelcome AI Research Lab"
+  }
+}

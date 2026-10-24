@@ -1,0 +1,751 @@
+# SMARTWELCOME AI — COMPLETE MASTER BUILD PROMPT
+## Gemma 4-Powered Smart Entry, Human Detection, Visitor Management and Wi-Fi-Connected Arduino UNO Q Attendance System
+
+### 1. MISSION AND ROLE
+
+Act as a senior AI engineer, full-stack software architect, Google Gemma 4 integration specialist, computer-vision engineer, IoT engineer, embedded firmware developer, cybersecurity engineer, database architect, UX designer, and QA engineer.
+
+Build a complete, functional, secure, and demonstrable software-and-hardware product named **SmartWelcome AI**.
+
+This is intended to be a serious hackathon project. It must demonstrate meaningful use of Google Gemma 4, reliable human detection, useful attendance automation, and real communication with an Arduino UNO Q over Wi-Fi.
+
+Do not stop after generating a project plan, a UI mockup, sample code, or a dashboard that uses fake data. Inspect the existing workspace, implement the software, integrate the AI, develop the hardware-side application, run tests, and document what is genuinely working.
+
+If a physical device or external credential is unavailable, continue with the parts that can be developed and clearly label unverified functionality.
+
+**Non-negotiable requirements:**
+1. Google Gemma 4 must be integrated and used for real AI functionality.
+2. The system must detect human presence through a camera.
+3. It must guide people through a sticker-based attendance workflow.
+4. It must support both employees and visitors.
+5. It must persist valid attendance records.
+6. It must communicate with the real Arduino UNO Q over Wi-Fi.
+7. It must produce a verifiable physical hardware response.
+8. It must be secure, maintainable, accessible, and demonstrable.
+9. All claimed results must be supported by actual tests or clearly identified as unverified.
+
+### 2. PROJECT PROBLEM
+
+Organizations often lack a dedicated attendance officer. People entering the premises may not be welcomed, visitors may not be registered consistently, and manual attendance can be slow or unreliable.
+
+SmartWelcome AI will automate the welcome and check-in experience while allowing authorized administrators to manage staff, visitors, attendance, and device status.
+
+The system must follow this sequence:
+
+1. Detect a person approaching the entrance.
+2. Display a welcome message.
+3. Explain that the person should collect an attendance sticker.
+4. Ask the person to scan the QR code on the sticker.
+5. Verify the code and the associated identity according to organizational policy.
+6. Record a valid attendance event with a timestamp.
+7. Display a confirmation message.
+8. Notify the Arduino UNO Q through an authenticated Wi-Fi connection.
+9. Produce a corresponding physical LED or LED-matrix indication.
+10. Record relevant system events and show the device connection status.
+
+Human detection and identity verification are separate operations. Detecting a person must not automatically identify that person or create an attendance record.
+
+### 3. EXISTING HARDWARE AND DEVELOPMENT ENVIRONMENT
+
+Assume the following equipment is available:
+
+- Arduino UNO Q connected to a Windows computer through USB-C.
+- A laptop webcam.
+- Access to a Wi-Fi network.
+- The Windows computer for software development.
+- No additional external camera, display, microphone, speaker, QR scanner, sensors, buttons, or other electronic components are confirmed available.
+
+Use the laptop webcam initially. Do not assume that it is directly attached to the UNO Q.
+
+Use the onboard UNO Q LEDs and LED matrix for hardware feedback wherever supported.
+
+Official hardware references:
+
+- UNO Q hardware: https://docs.arduino.cc/hardware/uno-q/
+- UNO Q User Manual: https://docs.arduino.cc/tutorials/uno-q/user-manual/
+- UNO Q Debian guide: https://docs.arduino.cc/tutorials/uno-q/debian-guide/
+- UNO Q power specifications: https://docs.arduino.cc/tutorials/uno-q/power-specification/
+
+The UNO Q contains a Linux-capable Qualcomm QRB2210 microprocessor and an STM32U585 microcontroller. Use the Linux side for suitable higher-level services and the MCU for hardware operations, communicating through the officially supported Bridge/RPC mechanisms where appropriate.
+
+Do not assume a particular board RAM configuration. Inspect the actual board configuration before selecting deployment options.
+
+### 4. GOOGLE GEMMA 4 IS MANDATORY
+
+Official Gemma resources:
+
+- Gemma 4 model documentation: https://ai.google.dev/gemma/docs/core
+- Gemma 4 model card: https://ai.google.dev/gemma/docs/core/model_card_4
+- Google DeepMind Gemma 4: https://deepmind.google/models/gemma/gemma-4/
+- Gemma model setup: https://ai.google.dev/gemma/docs/get_started
+
+Integrate an actual Google Gemma 4 model. Do not substitute Gemma 3, Gemini, another LLM, or a rule-based chatbot while continuing to label the result Gemma 4.
+
+Before implementation, determine which model variants and inference runtimes are supported by the actual deployment environment.
+
+Potential model choices include Gemma 4 E2B, E4B, 12B, 26B A4B, and 31B, subject to current availability and compatibility. Choose the model based on tested requirements, not its name alone.
+
+#### 4.1 Required Gemma 4-powered features
+
+**Feature A — Intelligent welcome assistant**
+
+Create a conversational assistant that can explain the entry procedure in natural, friendly language.
+
+Example:
+
+Person: “What should I do first?”
+
+Gemma 4: “Welcome! Please collect an attendance sticker from the designated holder. Then scan the QR code to continue your check-in.”
+
+The application must provide a clear, immediate fallback welcome message if AI inference is unavailable.
+
+**Feature B — Visitor question answering**
+
+Gemma 4 should answer common organizational questions using administrator-approved information, such as:
+
+- Where visitors should report.
+- How to complete registration.
+- How to contact a department.
+- What information is required for a visit.
+- Where to wait for a host.
+- How to correct a failed check-in.
+
+Use retrieval from approved organizational content when practical. Do not allow the model to invent policies, room numbers, staff details, or security permissions.
+
+If the approved information does not answer a question, the assistant must say that it cannot verify the answer and provide an appropriate next step.
+
+**Feature C — Language-friendly interaction**
+
+Allow visitors to request supported languages and simpler wording. Evaluate the actual model's response quality for the languages selected for the demo.
+
+Do not claim that every language is supported equally well. Keep essential check-in instructions available in a deterministic, administrator-configured format.
+
+**Feature D — Intelligent administrative summaries**
+
+Provide authorized administrators with natural-language summaries of aggregate attendance data, such as:
+
+- How many staff members checked in today.
+- How many visitors were registered.
+- Which check-ins failed validation.
+- Whether the hardware experienced downtime.
+- What attendance trends are visible in the selected reporting period.
+
+The backend must calculate authoritative counts from the database. Gemma 4 may explain the results, but it must not fabricate statistics or independently access unrestricted database records.
+
+**Feature E — Controlled AI tool use**
+
+If the model uses tool calling or structured output, expose only explicitly authorized tools.
+
+Examples include:
+- `get_public_checkin_instructions`
+- `get_department_information`
+- `get_aggregate_attendance_summary`
+- `get_device_health_status`
+
+Validate tool inputs and permissions on the server. Never allow the model to directly execute arbitrary SQL, shell commands, firmware updates, account changes, or attendance writes.
+
+The model must never approve a QR code, determine an identity from appearance, bypass authentication, or authorize physical access.
+
+#### 4.2 Actual inference integration
+
+Create a reusable backend Gemma service with a clear interface, configuration, input validation, response validation, timeouts, rate limits, error handling, and appropriate logging.
+
+Select one of these deployment approaches:
+
+**Preferred first option: local inference on the Windows computer**
+
+If the computer has sufficient resources, run a compatible Gemma 4 variant through a supported local inference runtime. The application should call that runtime through a backend service.
+
+This can reduce dependence on internet connectivity and avoid sending visitor questions to a third-party inference service. Verify that the selected model can actually run on the available computer.
+
+**Alternative: hosted Gemma 4 inference**
+
+If local inference is impractical, use an available, documented endpoint that genuinely serves the selected Gemma 4 model.
+
+Keep credentials server-side, use TLS, configure usage limits, and document any access requirements, costs, or quotas.
+
+**Optional advanced deployment: inference on the UNO Q**
+
+Investigate running a compatible, quantized Gemma 4 variant on the UNO Q only after verifying its RAM, storage, runtime compatibility, and actual inference performance.
+
+Do not make this the initial dependency. The board's limited system resources mean that compatibility cannot be assumed from the model's parameter count alone.
+
+#### 4.3 Gemma 4 acceptance requirements
+
+Before calling the AI integration complete:
+
+1. Identify the exact Gemma 4 model variant.
+2. Document where inference runs.
+3. Make a real inference request.
+4. Display a genuine response in the application.
+5. Demonstrate at least two useful Gemma-powered features.
+6. Show appropriate error handling when inference is unavailable.
+7. Verify that the core attendance workflow remains functional during an AI outage.
+8. Include automated tests and at least one documented integration test using the actual model.
+9. Clearly distinguish actual Gemma 4 results from mocked test responses.
+
+**A chatbot UI alone does not count as Gemma 4 integration.**
+
+### 5. HUMAN DETECTION AND CAMERA EXPERIENCE
+
+Use a dedicated, maintained person-detection model or compatible computer-vision library.
+
+The laptop webcam is the initial camera source. Implement browser permission handling or a suitable local camera service based on the selected architecture.
+
+Required behaviour:
+
+- Detect people in the camera view.
+- Display a visible bounding box where supported.
+- Show detection confidence when available.
+- Display the current detection state.
+- Trigger the welcome interface when a person is detected.
+- Use a configurable absence timeout and cooldown.
+- Avoid repeatedly triggering the same welcome event while a person remains in view.
+- Handle low lighting, camera disconnection, denied permission, model-loading failure, and unsupported hardware.
+- Allow camera preview to be stopped.
+- Avoid storing camera images or video unless explicitly required and authorized.
+
+Do not assume that Gemma 4 is automatically performing the detection. Use a separate vision model where appropriate, and document which component performs each task.
+
+The initial version must not use facial recognition or biometric identity matching.
+
+### 6. COMPLETE ATTENDANCE WORKFLOW
+
+Build a staff and visitor registration system.
+
+#### Staff records
+
+Include:
+- Internal unique identifier.
+- Full name.
+- Optional staff number.
+- Department.
+- Active or inactive status.
+- Sticker-token assignment.
+- Creation and update timestamps.
+
+#### Visitor records
+
+Include:
+- Internal unique identifier.
+- Name or minimum information required by the organization's policy.
+- Optional organization.
+- Optional visit purpose.
+- Optional host or department.
+- Visit status.
+- Sticker-token assignment.
+- Creation and update timestamps.
+
+#### Sticker and QR-code system
+
+Generate unique, cryptographically random, non-sequential tokens.
+
+The QR code must contain an opaque token or appropriately protected check-in reference, not personal information in plain text.
+
+Support:
+- Sticker issuance.
+- QR generation.
+- Printable sticker labels.
+- Manual code entry.
+- Token expiration and revocation.
+- Duplicate submission protection.
+- Token validation on the backend.
+
+Where practical, support a temporary visitor sticker that can be expired or revoked after use or after the visit, according to configured organizational policy.
+
+#### Check-in sequence
+
+1. Detect a person.
+2. Show the welcome message.
+3. Instruct the person to collect a sticker.
+4. Scan the QR code or enter the code.
+5. Validate the token.
+6. Display the appropriate staff or visitor information according to privacy policy.
+7. Require any additional identity confirmation required by the organization.
+8. Record the attendance event transactionally.
+9. Display a success or failure message.
+10. Send the event to the UNO Q.
+11. Confirm the hardware acknowledgement when available.
+12. Log the event without exposing secret tokens.
+
+Use idempotency controls and database constraints to prevent unintended duplicate check-ins.
+
+A sticker alone is not proof that its holder is the authorized person. Document the limitations of sticker-based identity verification and make the verification policy configurable.
+
+### 7. WI-FI CONNECTED ARDUINO UNO Q
+
+Build real wireless integration between the software and the board.
+
+#### Intended architecture
+
+- The web frontend runs on the Windows computer or another documented application host.
+- The backend manages attendance, database access, AI service calls, and device communication.
+- The laptop webcam provides the initial person-detection input.
+- The UNO Q connects to the same Wi-Fi network as the backend during local deployment.
+- A lightweight device agent runs on the UNO Q's Linux MPU.
+- The device agent communicates with the MCU using supported UNO Q Bridge/RPC mechanisms.
+- The MCU controls the available onboard LEDs and LED matrix.
+- The device agent communicates with the backend over an authenticated wireless connection.
+- The dashboard displays actual device connectivity and acknowledgement status.
+
+#### Communication protocol
+
+Use WebSocket over the local network for bidirectional communication if supported by the chosen stack, or choose another documented protocol and explain the decision.
+
+Define versioned messages for:
+- Device registration.
+- Heartbeats.
+- Person-detected events.
+- Check-in-pending events.
+- Attendance-success events.
+- Attendance-failure events.
+- Device-status reports.
+- Command acknowledgements.
+- Hardware errors.
+- Reconnection and resynchronization.
+
+Each command should contain a unique ID, event type, timestamp, and protocol version. Validate messages and prevent duplicate command execution.
+
+The device agent must:
+- Authenticate to the backend.
+- Reconnect after temporary disconnection.
+- Report its current state.
+- Acknowledge commands.
+- Log useful diagnostic information.
+- Avoid storing unnecessary personal data.
+- Avoid treating an unacknowledged command as successful.
+
+#### Hardware indicators
+
+Implement the following status mapping using verified hardware APIs:
+
+- Startup: startup pattern.
+- Idle: waiting state.
+- Person detected: detection indication.
+- Awaiting QR check-in: pending indication.
+- Successful attendance: success indication.
+- Invalid sticker: error indication.
+- Wi-Fi disconnected: offline indication.
+- Hardware error: fault indication.
+
+Use the available onboard RGB LEDs and LED matrix where supported.
+
+If a desired indicator cannot be implemented using the actual board APIs, document the limitation and implement the closest verified alternative.
+
+#### Wi-Fi reliability
+
+Provide instructions for:
+- Configuring the Wi-Fi network.
+- Discovering or setting the device's IP address.
+- Configuring the backend address.
+- Configuring firewall rules.
+- Checking port accessibility.
+- Diagnosing client isolation and network restrictions.
+- Testing connectivity.
+- Recovering after a network outage.
+
+Do not hardcode a temporary IP address into multiple source files. Use configuration.
+
+Do not expose an unauthenticated device-control interface to the public internet.
+
+The system must not claim that the board is connected merely because Wi-Fi is enabled. Confirm actual authenticated communication and acknowledgements.
+
+### 8. SOFTWARE FEATURES AND PAGES
+
+Build a cohesive, professional application with these pages.
+
+**A. Public welcome kiosk**
+- Live webcam preview.
+- Person-detection status.
+- Large welcome message.
+- Sticker collection instructions.
+- QR scanning and manual code entry.
+- Accessible language selector.
+- Gemma 4-powered visitor assistant.
+- Clear success, error, and retry states.
+
+**B. Staff management**
+- Register and edit staff.
+- Assign or revoke sticker tokens.
+- Search and filter staff.
+- Enable and disable accounts according to permissions.
+
+**C. Visitor management**
+- Register visitors.
+- Issue visitor stickers.
+- Manage visit status.
+- Expire or revoke visitor tokens.
+- Record the minimum necessary information.
+
+**D. Attendance dashboard**
+- Today's attendance.
+- Staff and visitor totals.
+- Check-in history.
+- Search and filters.
+- Date-range selection.
+- CSV export.
+- Duplicate and failed-check-in information.
+- Clear indication of the difference between check-in records and current physical presence.
+
+**E. Gemma 4 AI assistant**
+- Conversational help.
+- Approved organizational knowledge.
+- Language-friendly interaction.
+- Controlled tool use.
+- Loading, timeout, and error states.
+- Clearly identified AI-generated responses.
+
+**F. Hardware management**
+- Device identity.
+- Online/offline state.
+- Last successful heartbeat.
+- Software and protocol version.
+- Last acknowledged event.
+- Diagnostic logs.
+- Test indicator command for authorized administrators.
+
+**G. Administration**
+- User and role management.
+- Approved visitor information.
+- AI configuration.
+- Device configuration.
+- Attendance settings.
+- Token expiry policy.
+- Audit history.
+- Data-retention settings.
+
+### 9. BACKEND AND DATABASE
+
+Use a maintainable architecture and inspect the existing project before selecting or replacing technologies.
+
+If the repository is empty, choose a beginner-friendly, well-supported stack. Explain why it fits the project.
+
+The backend must own authoritative business rules.
+
+Create persistent data models for:
+- Staff.
+- Visitors.
+- Users and roles.
+- Sticker tokens.
+- Attendance events.
+- Device registrations.
+- Device events and acknowledgements.
+- Approved organizational knowledge.
+- Audit events.
+- Configuration that is safe to store in the database.
+
+Use an appropriate database. SQLite can be considered for a local prototype if its concurrency and deployment limitations are acceptable. Choose a suitable server database for a multi-user production deployment when justified.
+
+Implement:
+- Schema migrations.
+- Foreign keys and indexes.
+- Transactional writes.
+- Duplicate protection.
+- Server-side validation.
+- Error handling.
+- Persistent storage.
+- Backup and restore instructions.
+- Development seed data.
+- Structured logging.
+
+Keep AI-generated text separate from authoritative attendance records.
+
+### 10. SECURITY AND PRIVACY
+
+Implement:
+- Authentication for administrators.
+- Role-based access control.
+- Secure password hashing if local passwords are used.
+- Input validation.
+- Rate limiting.
+- Protected administrative endpoints.
+- Device authentication and credential revocation.
+- Safe QR-token generation and validation.
+- Secret management through environment configuration.
+- Strict CORS configuration.
+- TLS for production connections.
+- Appropriate secure session or cookie handling.
+- Audit trails for administrative changes.
+- Protection against replayed or duplicate requests.
+- Data minimization and retention controls.
+- Safe error messages.
+- No secrets in source control.
+- No personal information or secret tokens in application logs.
+
+Include a safe `.env.example` with placeholders, not real credentials.
+
+Never ask the developer to paste private passwords, API keys, or Wi-Fi passwords into a public chat or source file.
+
+Provide a visible notice that camera-based person detection is active.
+
+Do not implement facial recognition, biometric identity storage, or automatic identity inference from appearance.
+
+### 11. RESILIENCE AND OFFLINE BEHAVIOUR
+
+The application should remain useful if Gemma 4 or Wi-Fi becomes unavailable.
+
+If Gemma 4 is unavailable:
+- Show predefined welcome and check-in instructions.
+- Allow ordinary QR check-in to continue if the backend is available.
+- Display a clear AI-unavailable indicator.
+- Avoid inventing an AI response.
+
+If the UNO Q is offline:
+- Continue valid backend attendance processing where possible.
+- Mark the device as offline.
+- Queue only the minimum safe, non-sensitive device events needed for synchronization.
+- Use event IDs and idempotency controls during recovery.
+- Reconcile device state when the connection returns.
+
+If the backend is unavailable:
+- Do not display a false successful attendance confirmation.
+- Explain that the check-in could not be confirmed.
+- Offer a safe retry path.
+- Do not silently save attendance only in browser memory and claim it is in the database.
+
+### 12. USER EXPERIENCE AND DESIGN
+
+Create a modern, professional, welcoming design appropriate for a real organization.
+
+Use:
+- Clear visual hierarchy.
+- Large, readable kiosk instructions.
+- Responsive desktop and tablet layouts.
+- Accessible colour contrast.
+- Keyboard navigation.
+- Loading indicators.
+- Useful empty states.
+- Helpful error recovery.
+- Clear success confirmation.
+- A consistent design system.
+- A separate administrator interface.
+
+The interface should be attractive enough for a hackathon demonstration while remaining practical for real users.
+
+Avoid excessive animation, unnecessary complexity, fake metrics, or decorative controls that do nothing.
+
+### 13. REPOSITORY AND IMPLEMENTATION PROCESS
+
+Before writing code:
+1. Inspect the current workspace.
+2. Identify the existing framework and dependencies.
+3. Check the available Python, Node.js, Arduino App Lab, and related tools as relevant.
+4. Inspect the UNO Q connection and available resources where possible.
+5. Identify which Gemma 4 inference options are practical.
+6. Document the architecture and data flow.
+7. Produce a phased implementation plan.
+8. Preserve existing working code and data.
+
+Then implement in these phases.
+
+**Phase 1: Foundation**
+- Project setup.
+- Frontend and backend.
+- Database and migrations.
+- Configuration.
+- Health checks.
+- Initial automated tests.
+
+**Phase 2: Attendance**
+- Staff and visitor management.
+- QR generation.
+- Sticker issuance and validation.
+- Attendance transactions.
+- Dashboard and CSV export.
+
+**Phase 3: Person detection**
+- Webcam integration.
+- Person-detection model.
+- Welcome workflow.
+- Detection cooldown and timeout.
+- Camera error handling.
+
+**Phase 4: Gemma 4**
+- Select and configure the actual model.
+- Implement inference service.
+- Build the visitor assistant.
+- Add approved knowledge retrieval.
+- Implement safe tool calling if needed.
+- Add language-friendly interactions.
+- Add authorized attendance summaries.
+- Test real inference and outage handling.
+
+**Phase 5: UNO Q**
+- Create the Linux-side device agent.
+- Implement the MCU hardware sketch.
+- Verify Bridge/RPC calls.
+- Implement status indicators.
+- Verify each physical indicator.
+
+**Phase 6: Wi-Fi**
+- Implement the authenticated communication protocol.
+- Configure device registration.
+- Implement heartbeat and acknowledgement.
+- Implement reconnect and resynchronization.
+- Test actual wireless communication between the application and board.
+
+**Phase 7: End-to-end integration**
+- Detect a person.
+- Display the welcome screen.
+- Complete staff check-in.
+- Complete visitor check-in.
+- Save attendance.
+- Notify the UNO Q.
+- Observe the physical hardware response.
+- Verify the dashboard status.
+- Test failure and recovery scenarios.
+
+**Phase 8: Security, validation, and presentation**
+- Run tests.
+- Fix critical defects.
+- Validate security controls.
+- Document limitations.
+- Prepare a reproducible hackathon demonstration.
+- Provide evidence of actual Gemma 4 inference and actual hardware connectivity.
+
+### 14. REQUIRED AUTOMATED TESTS
+
+Test at least:
+
+- Staff registration.
+- Visitor registration.
+- Valid QR-token validation.
+- Invalid, expired, and revoked token rejection.
+- Duplicate check-in prevention.
+- Attendance persistence after restart.
+- Correct staff/visitor classification.
+- Authorization failures.
+- API validation.
+- Gemma service success and timeout.
+- Gemma fallback behaviour.
+- Structured AI output validation.
+- Safe AI tool permissions.
+- Device authentication.
+- Heartbeat expiry.
+- Duplicate device-command handling.
+- Wi-Fi disconnect and reconnect.
+- Device acknowledgement handling.
+- Attendance processing when Gemma is unavailable.
+- Attendance processing when the device is offline.
+- Prevention of false success messages.
+
+Use mocks only where necessary for automated testing. Clearly separate simulated tests from real integration tests.
+
+### 15. END-TO-END ACCEPTANCE CRITERIA
+
+Do not mark the project complete until each applicable criterion has evidence.
+
+**Software**
+- The application starts successfully.
+- Database migrations run.
+- Staff and visitor registration work.
+- QR check-in works.
+- Valid attendance persists.
+- Duplicate attendance is prevented.
+- The dashboard shows saved records.
+
+**Human detection**
+- The webcam opens with permission.
+- A person is detected under test conditions.
+- The welcome screen appears.
+- Detection alone does not create attendance.
+
+**Gemma 4**
+- The exact model variant is documented.
+- An actual Gemma 4 inference request succeeds.
+- At least two Gemma-powered features are demonstrated.
+- Model failure is handled gracefully.
+- The AI does not control trusted attendance decisions.
+
+**Hardware**
+- The actual UNO Q is identified.
+- The device agent runs.
+- The device communicates with the backend over Wi-Fi.
+- A command is acknowledged.
+- The correct physical LED or matrix indication is observed.
+- Connection loss and recovery are tested.
+
+**Security**
+- Unauthorized administrative actions are rejected.
+- Secrets are not committed.
+- QR tokens are validated server-side.
+- Sensitive data is minimized.
+- Device commands are authenticated.
+
+For each criterion, report PASS, FAIL, BLOCKED, or NOT VERIFIED. Include the relevant test or observation. Never claim a physical test passed if it was not performed.
+
+### 16. HACKATHON DEMONSTRATION MODE
+
+Create a reproducible demonstration flow:
+
+1. Start the application and database.
+2. Start or connect the Gemma 4 inference service.
+3. Connect the UNO Q over Wi-Fi.
+4. Show the device as online after a real heartbeat.
+5. Stand in front of the webcam.
+6. Show the person-detection indicator and welcome screen.
+7. Demonstrate a Gemma 4-powered question and answer.
+8. Pick a test sticker and scan its QR code.
+9. Complete a staff check-in.
+10. Repeat with a visitor.
+11. Show the saved attendance records.
+12. Show the corresponding physical LED or matrix feedback.
+13. Demonstrate an invalid QR code.
+14. Demonstrate graceful recovery from a temporary AI or device connection failure.
+15. Present the architecture and test evidence.
+
+Create clearly labelled demo data and test credentials. Never use fabricated live attendance metrics to make the product appear successful.
+
+If a component is not physically available, demonstrate it in simulation mode and clearly state that it is simulated.
+
+### 17. DOCUMENTATION AND DELIVERABLES
+
+Produce:
+- Complete source code.
+- Frontend application.
+- Backend API.
+- Database schema and migrations.
+- Person-detection implementation.
+- Actual Gemma 4 integration.
+- Approved knowledge retrieval for the AI assistant.
+- QR generation and attendance verification.
+- Dashboard and reporting.
+- UNO Q Linux device agent.
+- UNO Q MCU firmware/sketch.
+- Wi-Fi communication protocol.
+- Device authentication.
+- Automated tests.
+- `.env.example`.
+- README with exact setup commands.
+- Hardware setup guide.
+- Wi-Fi troubleshooting guide.
+- Database backup and restore guide.
+- Architecture diagram.
+- API documentation.
+- AI inference documentation.
+- Security and privacy notes.
+- End-to-end demonstration instructions.
+- Test-results report.
+- List of known limitations and remaining work.
+
+Use clear folder names and keep the software and hardware modules organized.
+
+### 18. FINAL EXECUTION INSTRUCTIONS
+
+Begin by inspecting the current project and the available hardware environment.
+
+Do not replace the project with a duplicate application unless explicitly justified.
+
+Do not silently omit Gemma 4.
+
+Do not invent APIs, model endpoints, hardware capabilities, or successful test results.
+
+Do not stop at the planning stage. Implement the smallest end-to-end working slice, test it, fix problems, and continue through the required phases.
+
+Where a step requires a user action, explain exactly what to do, the command to run, the expected output, and how to troubleshoot errors.
+
+If a required tool, credential, model download, hardware permission, or physical test is unavailable, continue with other implementable work and clearly identify the blocker.
+
+**Final objective:** Deliver SmartWelcome AI as a working, Gemma 4-powered intelligent entry and attendance system in which camera-based human detection initiates the welcome experience, the person completes verified QR-based staff or visitor check-in, the backend saves the attendance record, Gemma 4 provides useful conversational assistance, and the real Arduino UNO Q receives authenticated events over Wi-Fi and responds through its physical indicators.
+
+The final deliverable must be demonstrable, secure, documented, tested, and honest about its actual capabilities.

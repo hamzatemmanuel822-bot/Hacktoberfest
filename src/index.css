@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-badge,
+  #printable-badge * {
+    visibility: visible;
+  }
+  #printable-badge {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    box-shadow: none !important;
+    border: 2px dashed #000 !important;
+  }
+}
