@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-10-24T12:41:14.900Z",
+  "lastUpdated": "2026-10-24T13:14:18.141Z",
   "staff": [
     {
       "id": "stf_01",
@@ -154,9 +154,48 @@
       "expiresAt": null,
       "createdAt": "2026-10-24T12:41:14.191Z",
       "revokedReason": "Security key rotation"
+    },
+    {
+      "id": "tok_test_rev",
+      "token": "SWK-STF-896C-52D6",
+      "tokenHash": "42fbf5c7ce56024379ff3ec6e1e58bf0f8ed3193b6735cb04586dd82ce73f22c",
+      "assignedToType": "staff",
+      "assignedToId": "stf_01",
+      "status": "revoked",
+      "expiresAt": null,
+      "createdAt": "2026-10-24T13:14:17.666Z",
+      "revokedReason": "Security key rotation"
     }
   ],
   "attendanceRecords": [
+    {
+      "id": "att_1792847657666_2e3c26",
+      "personType": "staff",
+      "personId": "stf_01",
+      "personName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "timestamp": "2026-10-24T13:14:17.666Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-STF-3518-0141",
+      "deviceNotified": false,
+      "deviceAck": false,
+      "duplicateAttempt": true,
+      "notes": "Duplicate check-in attempt (first logged at 9:41:08 AM)"
+    },
+    {
+      "id": "att_1792847657658_0595b4",
+      "personType": "staff",
+      "personId": "stf_01",
+      "personName": "Dr. Elena Vance",
+      "department": "Robotics & Hardware Lab",
+      "timestamp": "2026-10-24T13:14:17.659Z",
+      "verificationType": "qr_sticker",
+      "tokenUsed": "SWK-STF-3518-0141",
+      "deviceNotified": false,
+      "deviceAck": false,
+      "duplicateAttempt": true,
+      "notes": "Duplicate check-in attempt (first logged at 9:41:08 AM)"
+    },
     {
       "id": "att_1792845674192_ba301a",
       "personType": "staff",
@@ -225,12 +264,24 @@
       "firmwareVersion": "v1.4.0-stm32u585",
       "protocolVersion": "1.0",
       "authToken": "uno-q-sec-9812-token-auth",
-      "status": "online",
+      "status": "offline",
       "lastHeartbeat": "2026-10-24T12:41:08.597Z",
       "registeredAt": "2026-10-17T12:41:08.597Z"
     }
   ],
   "deviceEvents": [
+    {
+      "id": "cmd_1792847658115_c2c177",
+      "deviceId": "UNO-Q-ENTRANCE-01",
+      "eventType": "ATTENDANCE_SUCCESS",
+      "payload": {
+        "personName": "Test Attendee",
+        "audioChime": true
+      },
+      "timestamp": "2026-10-24T13:14:18.115Z",
+      "status": "acknowledged",
+      "ackTimestamp": "2026-10-24T13:14:18.141Z"
+    },
     {
       "id": "cmd_1792845674873_706903",
       "deviceId": "UNO-Q-ENTRANCE-01",
@@ -372,6 +423,46 @@
   ],
   "auditLogs": [
     {
+      "id": "aud_1792847657667_e056",
+      "actor": "kiosk",
+      "action": "DUPLICATE_CHECKIN_LOGGED",
+      "target": "Dr. Elena Vance",
+      "details": "Verified via qr_sticker. Token: SWK-STF...",
+      "timestamp": "2026-10-24T13:14:17.667Z"
+    },
+    {
+      "id": "aud_1792847657666_7e5a",
+      "actor": "kiosk",
+      "action": "REVOKED_TOKEN_PRESENTED",
+      "target": "SWK-STF-896C-52D6",
+      "details": "Token revoked: Security key rotation",
+      "timestamp": "2026-10-24T13:14:17.666Z"
+    },
+    {
+      "id": "aud_1792847657666_0c31",
+      "actor": "kiosk",
+      "action": "TOKEN_VALIDATION_FAILED",
+      "target": "SWK-FAKE-9999-XXXX",
+      "details": "Token not found in registry",
+      "timestamp": "2026-10-24T13:14:17.666Z"
+    },
+    {
+      "id": "aud_1792847657665_824d",
+      "actor": "kiosk",
+      "action": "DUPLICATE_CHECKIN_LOGGED",
+      "target": "Dr. Elena Vance",
+      "details": "Verified via qr_sticker. Token: SWK-STF...",
+      "timestamp": "2026-10-24T13:14:17.665Z"
+    },
+    {
+      "id": "aud_1792847464087_2c05",
+      "actor": "system",
+      "action": "DEVICE_TIMEOUT",
+      "target": "UNO-Q-ENTRANCE-01",
+      "details": "Missed 3 consecutive heartbeats",
+      "timestamp": "2026-10-24T13:11:04.087Z"
+    },
+    {
       "id": "aud_1792845674192_9845",
       "actor": "kiosk",
       "action": "DUPLICATE_CHECKIN_LOGGED",
@@ -416,7 +507,7 @@
     "absenceTimeoutSeconds": 5,
     "cooldownSeconds": 8,
     "duplicateWindowHours": 8,
-    "gemmaModelVariant": "gemma-4-e4b-it",
+    "gemmaModelVariant": "gemma-4-e2b",
     "gemmaInferenceEndpoint": "http://localhost:11434",
     "gemmaApiKeyConfigured": true,
     "unoQHost": "192.168.1.150",

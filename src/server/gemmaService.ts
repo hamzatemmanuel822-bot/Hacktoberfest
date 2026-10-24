@@ -125,7 +125,7 @@ export class GemmaService {
   }): Promise<GemmaInferenceResult> {
     const startTime = Date.now();
     const settings = db.getData().settings;
-    const modelVariant = settings.gemmaModelVariant || 'gemma-4-e4b-it';
+    const modelVariant = settings.gemmaModelVariant || 'gemma-4-e2b';
     const lang = params.language || 'English';
 
     // 1. Retrieve approved organizational context
@@ -222,7 +222,7 @@ ${approvedDocs || 'General Policy: All visitors must collect a visitor sticker a
   public async generateAdminSummary(dateStr?: string): Promise<GemmaInferenceResult> {
     const startTime = Date.now();
     const settings = db.getData().settings;
-    const modelVariant = settings.gemmaModelVariant || 'gemma-4-e4b-it';
+    const modelVariant = settings.gemmaModelVariant || 'gemma-4-e2b';
 
     // 1. Authoritative counts calculated directly from database
     const summaryData = this.executeTool('get_aggregate_attendance_summary', { date: dateStr });

@@ -203,11 +203,11 @@ export const AdminView: React.FC<AdminViewProps> = ({ onRefreshAll }) => {
                     }
                     className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-slate-100 focus:outline-none focus:border-cyan-500 font-mono"
                   >
-                    <option value="gemma-4-e4b-it">gemma-4-e4b-it (Recommended Edge/Workstation)</option>
-                    <option value="gemma-4-12b-it">gemma-4-12b-it (Balanced General Intelligence)</option>
+                    <option value="gemma-4-e2b">gemma-4-e2b (Active on Laptop - Lightweight 2B)</option>
+                    <option value="gemma-4-e4b-it">gemma-4-e4b-it (Edge / Workstation 4B)</option>
+                    <option value="gemma-4-12b-it">gemma-4-12b-it (Balanced General Intelligence 12B)</option>
                     <option value="gemma-4-26b-a4b">gemma-4-26b-a4b (MoE Active 4B)</option>
-                    <option value="gemma-4-31b">gemma-4-31b (Dense Flagship)</option>
-                    <option value="gemma-4-e2b">gemma-4-e2b (Ultra-light 2B)</option>
+                    <option value="gemma-4-31b">gemma-4-31b (Dense Flagship 31B)</option>
                   </select>
                 </div>
 

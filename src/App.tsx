@@ -18,7 +18,7 @@ export function App() {
   const [tokensList, setTokensList] = useState<StickerToken[]>([]);
   const [attendanceRecords, setAttendanceRecords] = useState<AttendanceRecord[]>([]);
   const [deviceTwin, setDeviceTwin] = useState<DeviceTwin | null>(null);
-  const [gemmaVariant, setGemmaVariant] = useState<string>('gemma-4-e4b-it');
+  const [gemmaVariant, setGemmaVariant] = useState<string>('gemma-4-e2b');
 
   useEffect(() => {
     loadAllData();

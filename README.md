@@ -45,7 +45,7 @@ Organizations often lack a dedicated attendance officer. People entering premise
 
 ## 3. Google Gemma 4 Integration (Mandatory Section 4)
 
-- **Model Choices**: `gemma-4-e4b-it` (recommended for edge/workstations), `gemma-4-12b-it`, `gemma-4-26b-a4b`, `gemma-4-31b`, `gemma-4-e2b`.
+- **Model Choices**: `gemma-4-e2b` (active on laptop - lightweight 2B), `gemma-4-e4b-it`, `gemma-4-12b-it`, `gemma-4-26b-a4b`, `gemma-4-31b`.
 - **Inference Runtimes**:
   - *Option 1*: Local inference via Ollama / vLLM (`http://localhost:11434/api/chat`).
   - *Option 2*: Google GenAI SDK (`@google/genai`) using `GEMINI_API_KEY`.

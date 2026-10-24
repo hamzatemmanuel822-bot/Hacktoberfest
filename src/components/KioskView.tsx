@@ -397,16 +397,24 @@ export const KioskView: React.FC = () => {
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-950/85 backdrop-blur border border-slate-800">
                 <div className={`h-2.5 w-2.5 rounded-full ${personDetected ? 'bg-amber-400 animate-ping' : 'bg-slate-500'}`} />
                 <span className="text-xs font-medium text-slate-200">
-                  {personDetected ? `Human Presence Active (${detectionConfidence}%)` : 'Monitoring Entrance...'}
+                  {personDetected ? `Human Presence Active (${detectionConfidence}%)` : 'Laptop Camera: Monitoring Entrance...'}
                 </span>
               </div>
 
-              {modelLoading && (
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950/85 text-xs text-cyan-300 border border-slate-800">
-                  <Loader2 className="h-3 w-3 animate-spin" />
-                  <span>Loading Vision AI...</span>
-                </div>
-              )}
+              <div className="flex items-center gap-2">
+                {cameraActive && (
+                  <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950/85 text-[11px] text-emerald-400 border border-slate-800">
+                    <Camera className="h-3 w-3 text-emerald-400" />
+                    <span>Laptop Webcam Ready</span>
+                  </div>
+                )}
+                {modelLoading && (
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950/85 text-xs text-cyan-300 border border-slate-800">
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                    <span>Loading Vision AI...</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Bottom Camera Action Bar */}
@@ -509,7 +517,7 @@ export const KioskView: React.FC = () => {
                   </p>
                   <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-900 text-[11px] text-slate-500">
                     <span className="font-mono text-cyan-400/80">
-                      {aiResponse ? aiResponse.model : 'Gemma 4 E4B (Grounded)'}
+                      {aiResponse ? aiResponse.model : 'Gemma 4 E2B (Laptop Edition)'}
                     </span>
                     {aiResponse && (
                       <span className="font-mono">

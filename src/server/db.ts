@@ -146,7 +146,7 @@ const DEFAULT_SETTINGS: SystemSettings = {
   absenceTimeoutSeconds: 5,
   cooldownSeconds: 8,
   duplicateWindowHours: 8,
-  gemmaModelVariant: 'gemma-4-e4b-it',
+  gemmaModelVariant: 'gemma-4-e2b',
   gemmaInferenceEndpoint: 'http://localhost:11434',
   gemmaApiKeyConfigured: Boolean(process.env.GEMINI_API_KEY),
   unoQHost: '192.168.1.150',

@@ -133,7 +133,7 @@ export const GemmaView: React.FC = () => {
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-100 tracking-tight">Google Gemma 4 AI Hub</h2>
             <span className="font-mono text-xs px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
-              {modelStatus?.variant || 'gemma-4-e4b-it'}
+              {modelStatus?.variant || 'gemma-4-e2b'}
             </span>
           </div>
           <p className="text-xs text-slate-400">
@@ -155,9 +155,9 @@ export const GemmaView: React.FC = () => {
         <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 space-y-1 shadow-md">
           <div className="text-[11px] text-slate-400">Active Model Variant</div>
           <div className="text-base font-bold font-mono text-cyan-400 truncate">
-            {modelStatus?.variant || 'gemma-4-e4b-it'}
+            {modelStatus?.variant || 'gemma-4-e2b'}
           </div>
-          <div className="text-[11px] text-slate-500">Google Gemma 4 Architecture</div>
+          <div className="text-[11px] text-slate-500">Google Gemma 4 Architecture (Laptop Edition)</div>
         </div>
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 space-y-1 shadow-md">
